@@ -1,0 +1,170 @@
+include includes/variables.jade
+include includes/mixins.jade
+
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title t
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+			
+		link(href="font/KelsonSans.css" rel="stylesheet")
+		link(href="font/gilroy.css" rel="stylesheet")
+		
+		link(href="css/bootstrap.css" rel="stylesheet")
+		link(href="css/bootstrap-theme.css" rel="stylesheet")
+		link(href="css/jquery.fancybox.css" rel="stylesheet")
+		link(href="css/owl.carousel.css" rel="stylesheet")
+		link(href="css/owl.theme.default.css" rel="stylesheet")
+		link(rel="stylesheet" type="text/css" href="css/reset.css")
+		link(rel="stylesheet" type="text/css" href="css/sprite.css")
+
+		- //link(rel="stylesheet/less" type="text/css" href="css/style.less")
+		link(rel="stylesheet" type="text/css" href="css/style.css")
+		- //script(src="js/less-1.7.3.min.js")
+
+		script(src="js/jquery.js")
+		script(src='js/bootstrap.js')
+		script(src='js/Bootstrap3_hover.js')
+		script(src="js/jquery.validate.min.js")
+		script(src="js/jquery.maskedinput.min.js")
+		script(src="js/additional-methods.js")
+		script(src="js/livequery.js")
+		script(src="js/jquery.fancybox.pack.js")
+		script(src="js/owl.carousel.js")
+		script(src="js/scripts.js")
+		
+		script(src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js")
+		script(src="//yastatic.net/share2/share.js")
+
+		link(rel="icon" href="favicon.ico" type="image/x-icon")
+
+		block head
+
+		block vars
+			-var is_index;
+
+		script.
+			var formSucc = 'Сообщение успешно отправлено';
+			var formReq = 'Не заполнены обязательные поля';
+			var formErr = 'Произошла ошибка, сообщение не отправлено';
+			var img = 'images/map.png';
+			//https://yandex.ru/map-constructor/location-tool/
+			var mapCenter = [55.76451695405045,37.65105463882565];//центр карты
+			var mapZoom = 9;//масштаб карты
+			//метки карты
+			var marks = [
+			    {
+			        coord:[55.685781245686385,37.86035899121094],//координаты
+			        text:'Hola!',//текст при клике на метку
+			    },
+			    {
+			        coord:[56.008411645797686,37.84880854507563],
+			        text:'Buenos dias!',
+			    }
+			    
+			];
+
+	body
+		header.header
+			.header-stripe
+			.container
+				.row
+					.col-sm-3.col-md-4.header-logo
+						a.logo(href='/')
+							img(src='images/logo.png' alt='')
+							.logo-ribbon Резерв СБ
+							.logo-text.hidden-xs Центр подготовки и лицензирования сотрудников охраны
+					.col-sm-5.col-md-4.text-center 
+						.undertake
+							.undertake-ttl Мы провели обучение
+							.clearfix
+								.undertake-el.undertake-el--fi 172 охранника
+								.undertake-el.undertake-el--ur 20 компаний
+						.langSwitch
+							span.langSwitch-link.langSwitch-link--active Ru
+							span.langSwitch-sep
+							a.langSwitch-link(href='') En
+							span.langSwitch-sep
+						
+					.col-sm-4 
+						.iconed.contact
+								.iconed-logo.contact-logo 
+									.icon-hAdr
+								.contact-text Московская обл., г. Сергиев-Посад, ул. Театральная, 10А
+						.iconed.contact
+								.iconed-logo.contact-logo
+									.icon-hTime
+								.contact-text Режим работы: Пн-Пт с 10-00 до 19-00
+						.iconed.contact
+								.iconed-logo.contact-logo
+									.icon-hPhone
+								.contact-text.contact-link
+									a(href='tel:+74952956868') +7 (455) 123-68-68
+						div
+							a.button.header-button.fancy(href='#formOrder') Запись
+							a.button.header-button(href='//snipersb.ru/' target='_blank') Аренда тира
+		nav.navbar.navbar-default.menu 
+			.container
+				.row
+					.navbar-header
+						button(type="button" class="navbar-toggle collapsed pull-left menu-btn" data-toggle="collapse" data-target="#bs-menu") 
+							span(class="sr-only") Toggle navigation
+							span(class="icon-bar") 
+							span(class="icon-bar") 
+							span(class="icon-bar")
+					.collapse.navbar-collapse#bs-menu 
+						div.hidden-lg
+							+menu()
+						div.visible-lg
+							+menu('hover')
+
+		- if(is_index != true){
+			.container.contentInner
+				block bread
+					div bread standart
+				.row
+					article.col-xs-12.col-sm-9.pull-right
+						.ttl.ttlH
+							h1 Заголовок страницы
+						block content
+					aside.col-xs-12.col-sm-3.aside
+						ul.menuL
+							li.menuL-item
+								a.menuL-link(href='') Обращение с оружием
+							li.menuL-item
+								a.menuL-link.menuL-link--active(href='') Обращение с оружием
+							li.menuL-item
+								a.menuL-link(href='') Обращение с оружием
+						img(alt='' src='images/tmp/asidePct.jpg')
+		-}
+		-else{
+			block content
+		-}
+			
+		footer.footer
+			.container
+				.row
+					.col-xs-6.col-sm-4 
+						+menuBottom(menuBottoms[0])
+					.col-xs-6.col-sm-4.col-md-offset-1 
+						+menuBottom(menuBottoms[1])
+					.col-xs-12.col-sm-4.col-md-3.footer-contact 
+						.footer-block 141414, Московская обл., г. Сергиев-Посад, ул. Театральная, 10А  
+						.footer-block E-mail: 
+							a(href='mailto:info@rezerv-sb.ru') admin@rezerv-sb.ru
+						.footer-block Телефон: 
+							a(href='tel:+74952956868') +7 (495) 123-68-68
+						.footer-block.footer-blockSoc Расказать друзьям:
+							.footer-soc.ya-share2(data-services="vkontakte,facebook,twitter")
+
+
+		.hidden
+			#formOrder.fancyOrder 
+				.fancyTtl Оставить заявку 
+				form.formAjax(action='ajax.php')
+					input(type='text' name='name' placeholder='Имя*' required)
+					input.phoneMask(type='text' name='phone' placeholder='Телефон*' required)
+					input(type='text' name='time' placeholder='Время звонка')
+					textarea(name='comment' placeholder='Комментарий')
+					button.formAjax-button Оставить заявку 

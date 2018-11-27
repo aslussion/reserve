@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>t</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="font/KelsonSans.css" rel="stylesheet">
+    <link href="font/gilroy.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/jquery.fancybox.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.theme.default.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/sprite.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/Bootstrap3_hover.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
+    <script src="js/additional-methods.js"></script>
+    <script src="js/livequery.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+    <script src="//yastatic.net/share2/share.js"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+    <script src="js/map.js"></script>
+    <script>
+      var formSucc = 'Сообщение успешно отправлено';
+      var formReq = 'Не заполнены обязательные поля';
+      var formErr = 'Произошла ошибка, сообщение не отправлено';
+      var img = 'images/map.png';
+      //https://yandex.ru/map-constructor/location-tool/
+      var mapCenter = [55.76451695405045,37.65105463882565];//центр карты
+      var mapZoom = 9;//масштаб карты
+      //метки карты
+      var marks = [
+          {
+              coord:[55.685781245686385,37.86035899121094],//координаты
+              text:'Hola!',//текст при клике на метку
+          },
+          {
+              coord:[56.008411645797686,37.84880854507563],
+              text:'Buenos dias!',
+          }
+          
+      ];
+      
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-stripe"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3 col-md-4 header-logo"><a href="/" class="logo"><img src="images/logo.png" alt="">
+              <div class="logo-ribbon">Резерв СБ</div>
+              <div class="logo-text hidden-xs">Центр подготовки и лицензирования сотрудников охраны</div></a></div>
+          <div class="col-sm-5 col-md-4 text-center"> 
+            <div class="undertake">
+              <div class="undertake-ttl">Мы провели обучение</div>
+              <div class="clearfix">
+                <div class="undertake-el undertake-el--fi">172 охранника</div>
+                <div class="undertake-el undertake-el--ur">20 компаний</div>
+              </div>
+            </div>
+            <div class="langSwitch"><span class="langSwitch-link langSwitch-link--active">Ru</span><span class="langSwitch-sep"></span><a href="" class="langSwitch-link">En</a><span class="langSwitch-sep"></span></div>
+          </div>
+          <div class="col-sm-4"> 
+            <div class="iconed contact">
+              <div class="iconed-logo contact-logo"> 
+                <div class="icon-hAdr"></div>
+              </div>
+              <div class="contact-text">Московская обл., г. Сергиев-Посад, ул. Театральная, 10А</div>
+            </div>
+            <div class="iconed contact">
+              <div class="iconed-logo contact-logo">
+                <div class="icon-hTime"></div>
+              </div>
+              <div class="contact-text">Режим работы: Пн-Пт с 10-00 до 19-00</div>
+            </div>
+            <div class="iconed contact">
+              <div class="iconed-logo contact-logo">
+                <div class="icon-hPhone"></div>
+              </div>
+              <div class="contact-text contact-link"><a href="tel:+74952956868">+7 (455) 123-68-68</a></div>
+            </div>
+            <div><a href="#formOrder" class="button header-button fancy">Запись</a><a href="//snipersb.ru/" target="_blank" class="button header-button">Аренда тира</a></div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav class="navbar navbar-default menu"> 
+      <div class="container">
+        <div class="row">
+          <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target="#bs-menu" class="navbar-toggle collapsed pull-left menu-btn"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"> </span><span class="icon-bar"> </span><span class="icon-bar"></span></button>
+          </div>
+          <div id="bs-menu" class="collapse navbar-collapse"> 
+            <div class="hidden-lg">
+              <ul class="nav navbar-nav menu-frst"> 
+                <li class="menu-frstLi"><a href="">Главная</a>
+                </li>
+                <li class="menuSeparator"></li>
+                <li class="menu-frstLi menu-frstLi--active"><a href="">История организации</a>
+                </li>
+                <li class="menuSeparator"></li>
+                <li class="menu-frstLi dropdown"><a href="" data-toggle="dropdown" class="dropdown-toggle">Услуги</a>
+                  <ul class="dropdown-menu menu-sncd">
+                    <li class="menu-scndLi "><a href="">Обучение обращению с оружием</a></li>
+                    <li class="menu-scndLi  menu-scndLi--active"><a href="">Услуга 1</a></li>
+                  </ul>
+                </li>
+                <li class="menuSeparator"></li>
+                <li class="menu-frstLi"><a href="">Учредители</a>
+                </li>
+                <li class="menuSeparator"></li>
+                <li class="menu-frstLi"><a href="">Галерeя</a>
+                </li>
+                <li class="menuSeparator"></li>
+                <li class="menu-frstLi"><a href="">Публикации в СМИ</a>
+                </li>
+                <li class="menuSeparator"></li>
+                <li class="menu-frstLi"><a href="">О нас</a>
+                </li>
+                <li class="menuSeparator"></li>
+                <li class="menu-frstLi"><a href="">Контакты</a>
+                </li>
+                <li class="menuSeparator"></li>
+              </ul>
+            </div>
+            <div class="visible-lg">
+              <ul class="nav navbar-nav menu-frst"> 
+                <li class="menu-frstLi"><a href="">Главная</a>
+                </li>
+                <li class="menuSeparator"></li>
+                <li class="menu-frstLi menu-frstLi--active"><a href="">История организации</a>
+                </li>
+                <li class="menuSeparator"></li>
+                <li class="menu-frstLi dropdown"><a href="" data-hover="dropdown" class="dropdown-toggle">Услуги</a>
+                  <ul class="dropdown-menu menu-sncd">
+                    <li class="menu-scndLi "><a href="">Обучение обращению с оружием</a></li>
+                    <li class="menu-scndLi  menu-scndLi--active"><a href="">Услуга 1</a></li>
+                  </ul>
+                </li>
+                <li class="menuSeparator"></li>
+                <li class="menu-frstLi"><a href="">Учредители</a>
+                </li>
+                <li class="menuSeparator"></li>
+                <li class="menu-frstLi"><a href="">Галерeя</a>
+                </li>
+                <li class="menuSeparator"></li>
+                <li class="menu-frstLi"><a href="">Публикации в СМИ</a>
+                </li>
+                <li class="menuSeparator"></li>
+                <li class="menu-frstLi"><a href="">О нас</a>
+                </li>
+                <li class="menuSeparator"></li>
+                <li class="menu-frstLi"><a href="">Контакты</a>
+                </li>
+                <li class="menuSeparator"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="sliderMain"> 
+      <div class="sliderMain-photo"><img src="images/tmp/sliderMain.jpg" alt=""></div>
+      <div class="sliderMain-r">
+        <div class="sliderMain-ttl"> 
+          <h1>Школа охраны - Резерв-СБ</h1>
+        </div>
+        <ul class="ulDash">
+          <li>Современное оборудование для обучения;</li>
+          <li>Официальная сдача экзаменов; </li>
+          <li>Официальная сдача экзаменов. </li>
+        </ul>
+      </div>
+    </div>
+    <div class="block">
+      <div class="container"> 
+        <div class="ttl">Услуги образовательного центра	</div>
+        <div class="row">
+          <div class="col-md-6"><a href="" class="service">
+              <div class="service-l"><img src="images/tmp/service.jpg" alt=""></div>
+              <div class="service-r">
+                <div class="service-ttl">Обучение охранников 4-6 разрядов и руководителей ЧОП</div>
+                <div class="service-text">Частная охранная организация (ЧОО) может быть создана только в форме общества с ограниченной ответственностью и не может осуществлять иную деятельность, кроме охранной. При этом имеется исключение.</div>
+              </div></a></div>
+          <!-- .clearfix каждый второй-->
+          <div class="col-md-6"><a href="" class="service">
+              <div class="service-l"><img src="images/tmp/service.jpg" alt=""></div>
+              <div class="service-r">
+                <div class="service-ttl">Подготовка к сдаче экзамена</div>
+                <div class="service-text">Частная охранная организация (ЧОО) может быть создана только в форме общества с ограниченной ответственностью и не может осуществлять иную деятельность, кроме охранной. При этом имеется исключение.</div>
+              </div></a></div>
+          <!-- .clearfix каждый второй-->
+          <div class="col-md-6"><a href="" class="service">
+              <div class="service-l"><img src="images/undertake--ur.jpg" alt=""></div>
+              <div class="service-r">
+                <div class="service-ttl">Заголовок</div>
+                <div class="service-text">Текст</div>
+              </div></a></div>
+          <!-- .clearfix каждый второй-->
+          <div class="col-md-6"><a href="" class="service">
+              <div class="service-l"><img src="images/undertake--ur.jpg" alt=""></div>
+              <div class="service-r">
+                <div class="service-ttl">Заголовок</div>
+                <div class="service-text">Текст</div>
+              </div></a></div>
+          <!-- .clearfix каждый второй-->
+        </div>
+        <div class="text-center"><a href="#formOrder" class="serviceButton fancy">Записаться <br> в образовательный центр</a></div>
+      </div>
+    </div>
+    <div class="block block--d">
+      <div class="container"> 
+        <div class="ttl">Фотографии с наших курсов</div>
+        <div class="owl-carousel owl-theme j-owlCarousel">
+          <div class="item"> <a rel="prev" href="images/tmp/course.jpg" title="Hola" class="fancy"><img src="images/tmp/course.jpg" alt=""></a></div>
+          <div class="item"> <a rel="prev" href="images/tmp/course.jpg" title="Hola" class="fancy"><img src="images/tmp/course.jpg" alt=""></a></div>
+          <div class="item"> <a rel="prev" href="images/tmp/course.jpg" title="Hola" class="fancy"><img src="images/tmp/course.jpg" alt=""></a></div>
+          <div class="item"> <a rel="prev" href="images/tmp/course.jpg" title="Hola" class="fancy"><img src="images/tmp/course.jpg" alt=""></a></div>
+          <div class="item"> <a rel="prev" href="images/tmp/course.jpg" title="Hola" class="fancy"><img src="images/tmp/course.jpg" alt=""></a></div>
+          <div class="item"> <a rel="prev" href="images/tmp/course.jpg" title="Hola" class="fancy"><img src="images/tmp/course.jpg" alt=""></a></div>
+          <div class="item"> <a rel="prev" href="images/tmp/course.jpg" title="Hola" class="fancy"><img src="images/tmp/course.jpg" alt=""></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="block block--padd">
+      <div class="container"> 
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="ttlSmall">Школа частных охранников</div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</p>
+          </div>
+          <div class="col-sm-6">
+            <div class="ttlSmall">Программа курсов</div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="block block--d">
+      <div class="container"> 
+        <div class="ttl">Актуальная информация</div>
+        <div class="row">
+          <div class="col-sm-4"><a href="" class="new">
+              <div class="new-date">5 марта 2018 г.</div>
+              <div class="new-img"><img src="images/tmp/new.jpg" alt=""></div>
+              <div class="new-text">Мы завершили подготовку 3-ей группы частных охранников</div></a></div>
+          <div class="col-sm-4"><a href="" class="new">
+              <div class="new-date">5 марта 2018 г.</div>
+              <div class="new-img"><img src="images/tmp/new.jpg" alt=""></div>
+              <div class="new-text">Мы завершили подготовку 3-ей группы частных охранников</div></a></div>
+          <div class="col-sm-4"><a href="" class="new">
+              <div class="new-date">5 марта 2018 г.</div>
+              <div class="new-img"><img src="images/tmp/new.jpg" alt=""></div>
+              <div class="new-text">Мы завершили подготовку 3-ей группы частных охранников</div></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="block block--map">
+      <div class="container"> 
+        <div class="ttl">Филиалы Резерв-Сб</div>
+      </div>
+      <div id="j-map" class="map"></div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6 col-sm-4"> 
+            <div class="footer-ttl">Услуги образовательного центра</div>
+            <div class="footer-menu">
+              <div class="footer-menuEl"><a href="">Обучение охранников</a></div>
+              <div class="footer-menuEl"><a href="">Аренда тира очень много букв Аренда тира очень много букв </a></div>
+              <div class="footer-menuEl"><a href="">Практическая стрельба</a></div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-offset-1"> 
+            <div class="footer-ttl">Информация о нас</div>
+            <div class="footer-menu">
+              <div class="footer-menuEl"><a href="">Учредители</a></div>
+              <div class="footer-menuEl"><a href="">Контакты</a></div>
+              <div class="footer-menuEl"><a href="">Наш юбилей</a></div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-3 footer-contact"> 
+            <div class="footer-block">141414, Московская обл., г. Сергиев-Посад, ул. Театральная, 10А  </div>
+            <div class="footer-block">E-mail: <a href="mailto:info@rezerv-sb.ru">admin@rezerv-sb.ru</a></div>
+            <div class="footer-block">Телефон: <a href="tel:+74952956868">+7 (495) 123-68-68</a></div>
+            <div class="footer-block footer-blockSoc">Расказать друзьям:
+              <div data-services="vkontakte,facebook,twitter" class="footer-soc ya-share2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="hidden">
+      <div id="formOrder" class="fancyOrder"> 
+        <div class="fancyTtl">Оставить заявку </div>
+        <form action="ajax.php" class="formAjax">
+          <input type="text" name="name" placeholder="Имя*" required>
+          <input type="text" name="phone" placeholder="Телефон*" required class="phoneMask">
+          <input type="text" name="time" placeholder="Время звонка">
+          <textarea name="comment" placeholder="Комментарий"></textarea>
+          <button class="formAjax-button">Оставить заявку </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

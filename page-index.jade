@@ -1,0 +1,84 @@
+extends template.jade
+
+block head
+	script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")
+	script(src="js/map.js")
+
+block vars
+	- var is_index=true;	
+
+block bread
+	
+block content
+	- /*.owl-carousel.owl-theme.j-owlCarouselSingle
+		- for(i=1;i<8;i++){
+		.item.sliderMain 
+			.sliderMain-photo
+				img(src='images/tmp/sliderMain.jpg' alt='') 
+			.sliderMain-r
+				.sliderMain-ttl Школа охраны - Резерв-СБ
+				ul.ulDash
+					li Современное оборудование для обучения;
+					li Официальная сдача экзаменов; 
+					li Официальная сдача экзаменов. 
+		-}
+	- */
+	.sliderMain 
+			.sliderMain-photo
+				img(src='images/tmp/sliderMain.jpg' alt='') 
+			.sliderMain-r
+				.sliderMain-ttl 
+					h1 Школа охраны - Резерв-СБ
+				ul.ulDash
+					li Современное оборудование для обучения;
+					li Официальная сдача экзаменов; 
+					li Официальная сдача экзаменов. 
+	.block
+		.container 
+			.ttl Услуги образовательного центра	
+			.row
+				for ne in news
+					.col-md-6
+						a.service(href='')
+							.service-l
+								img(src=ne.img alt='')
+							.service-r
+								.service-ttl= ne.ttl
+								.service-text= ne.text
+					// .clearfix каждый второй
+			.text-center
+				a.serviceButton.fancy(href='#formOrder') Записаться #[br] в образовательный центр
+
+	.block.block--d
+		.container  
+			.ttl Фотографии с наших курсов
+			.owl-carousel.owl-theme.j-owlCarousel
+				- for(i=1;i<8;i++){
+				.item 
+					a.fancy(rel='prev' href='images/tmp/course.jpg' title='Hola')
+						img(src='images/tmp/course.jpg' alt='')
+				-}
+
+	.block.block--padd
+		.container 
+			.row
+				.col-sm-6
+					.ttlSmall Школа частных охранников
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.
+				.col-sm-6
+					.ttlSmall Программа курсов
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam. 
+
+
+	.block.block--d
+		.container  
+			.ttl Актуальная информация
+			.row
+				- for(i=1; i<=3; i++){
+				.col-sm-4
+					include includes/new.jade
+				- }	
+	.block.block--map
+		.container 
+			.ttl Филиалы Резерв-Сб
+		.map#j-map

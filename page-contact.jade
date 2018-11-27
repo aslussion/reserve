@@ -1,0 +1,71 @@
+extends template.jade
+
+block head
+	script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")
+	script(src="js/map.js")
+
+	script.
+			var mapCenterG = [55.76451695405045,37.65105463882565];//центр карты
+			var mapZoomG = 9;//масштаб карты
+			//метки карты
+			var marksG = [
+			    {
+			        coord:[55.685781245686385,37.86035899121094],//координаты
+			        text:'Miss!',//текст при клике на метку
+			    },
+			];
+
+block bread
+	div(style='padding-top:25px') 
+	//for breads
+	
+block content
+	.row
+		.col-sm-5.col-md-4 
+			.iconed.contBlock
+				.iconed-logo
+					.icon-cPhone
+				div.contPhones
+					a(href='tel:+74952956868') +7 (495) 123-68-68
+					br
+					a(href='tel:+74952956868') +7 (495) 123-68-68
+			.iconed.contBlock
+				.iconed-logo
+					.icon-cMail
+				div
+					a(href='mailto:info@rezerv-sb.ru') admin@rezerv-sb.ru
+			.iconed.contBlock
+				.iconed-logo
+					.icon-cAdr
+				div Московская обл., г. Сергиев-Посад, ул. Театральная, 10А  
+			.iconed.contBlock
+				.iconed-logo
+					.icon-cTime
+				div Пн-Пт с 9-00 до 18-00
+
+		.col-sm-7.col-md-8 
+			#j-mapGen.map355.mapContact
+	.row
+		.col-sm-6.col-md-5.col-lg-4.cont
+			.iconed.cont-ttl
+				.iconed-logo
+					.icon-cCar
+				.cont-ttlText Как добраться на личном транспорте
+			.f-14 Едешь направо, потом налево Едешь направо, потом налево Едешь направо, потом налево
+		.col-sm-6.col-md-5.col-lg-4.col-md-offset-1.cont 
+			.iconed.cont-ttl
+				.iconed-logo
+					.icon-cBus
+				.cont-ttlText Как добраться на общественном транспорте
+			.f-14 Едешь направо, потом налево Едешь направо, потом налево Едешь направо, потом налево
+	.ttl.ttl24 Юридическая информация о компании
+	.f-16
+		div Юр название
+		div Адрес
+		div ИНН 
+		div КПП
+		div ОГРН
+		br
+
+	.ttl.ttl24 Филиалы Резерв-Сб
+	.map335#j-map
