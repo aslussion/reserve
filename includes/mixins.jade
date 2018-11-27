@@ -1,0 +1,30 @@
+mixin menuBottom(menu)
+		div.footer-ttl= menu.title
+		div.footer-menu
+				for el in menu.links
+					div.footer-menuEl
+						a(href='')= el
+
+mixin menu(type)
+	ul.nav.navbar-nav.menu-frst 
+		for el in menu
+			- var classAct = (el.active) ? ' menu-frstLi--active' : '';
+			- var classSub = (el.sub) ? ' dropdown' : '';
+			li(class="menu-frstLi"+classAct + classSub)
+				- if(el.sub){
+					- if(type=='hover'){
+						a.dropdown-toggle(href="" data-hover="dropdown")= el.title
+					-}
+					- else{
+						a.dropdown-toggle(href="" data-toggle="dropdown")= el.title
+					-}
+					ul.dropdown-menu.menu-sncd
+						for elSub in el.sub
+							- var classSubAct = (elSub.active) ? ' menu-scndLi--active' : '';
+								li(class="menu-scndLi #{ classSubAct }")
+									a(href='')= elSub.title
+				- }
+				- else{
+					a(href='')= el.title
+				- }
+			li.menuSeparator

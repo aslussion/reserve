@@ -1,0 +1,8 @@
+form.formAjax.feedback(action='ajax.php')
+	.feedback-inner
+		.row 
+			.col-xs-12.col-md-4.col-md-offset-7
+				input(type='text' name='name' placeholder='Имя*' required)
+				input.phoneMask(type='text' name='phone' placeholder='Телефон*' required)
+				input(type='text' name='time' placeholder='Время звонка')
+				button.formAjax-button Оставить заявку
