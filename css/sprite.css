@@ -1,0 +1,72 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-cAdr {
+  background-image: url(../images/spritesheet.png);
+  background-position: 0px -53px;
+  width: 42px;
+  height: 44px;
+}
+.icon-cBus {
+  background-image: url(../images/spritesheet.png);
+  background-position: -56px 0px;
+  width: 52px;
+  height: 53px;
+}
+.icon-cCar {
+  background-image: url(../images/spritesheet.png);
+  background-position: 0px 0px;
+  width: 56px;
+  height: 53px;
+}
+.icon-cMail {
+  background-image: url(../images/spritesheet.png);
+  background-position: -108px -39px;
+  width: 42px;
+  height: 30px;
+}
+.icon-cPhone {
+  background-image: url(../images/spritesheet.png);
+  background-position: -108px 0px;
+  width: 42px;
+  height: 39px;
+}
+.icon-cTime {
+  background-image: url(../images/spritesheet.png);
+  background-position: -42px -53px;
+  width: 42px;
+  height: 40px;
+}
+.icon-hAdr {
+  background-image: url(../images/spritesheet.png);
+  background-position: 0px -97px;
+  width: 19px;
+  height: 25px;
+}
+.icon-hPhone {
+  background-image: url(../images/spritesheet.png);
+  background-position: -108px -69px;
+  width: 24px;
+  height: 23px;
+}
+.icon-hTime {
+  background-image: url(../images/spritesheet.png);
+  background-position: -84px -53px;
+  width: 23px;
+  height: 23px;
+}

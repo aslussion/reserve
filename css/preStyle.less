@@ -1,0 +1,152 @@
+@xs:767px;
+@sm--min:767+1px;
+@sm:991px;
+@md--min:991+1px;
+@md:1229px;
+@lg--min:1229+1px;
+
+@fontSize: 18px;
+@f:@fontSize + 2;
+
+//@sm:991px;
+//@md--min:@sm+1px;
+
+.img-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin:auto;
+}
+.clear{clear:both;}
+.clearfix{
+	&:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+.inline-table {
+    display: inline-table;
+    height: 100%;
+	.table-cell {
+	    display: table-cell;
+	    vertical-align: middle;
+	}
+}
+.placeholder(@color){
+	&::placeholder{color:@color;opacity:1;}
+}
+.transition(@time:1s){
+	transition: all @time;
+}
+.transform(@deg:15){
+	transform: rotate(@deg);
+}
+.ellips{
+	display: block;
+	white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+
+.bolded{font-weight: bold;}
+
+/*menu*/
+.navbar-default{
+	border-radius: 0;
+	box-shadow: none;
+	border:0;
+
+	.navbar-collapse{border:0;box-shadow: none;}
+	a{filter:none !important;}
+}
+.navbar-nav > li > a{text-shadow:none;}
+.menu{
+	margin-bottom: 0;
+	font-size: 14px;
+	a{
+		background: none !important;
+		box-shadow: none !important;
+		text-decoration: none;
+		&:hover{text-decoration: underline !important;}
+	}
+	&-frstLi{
+		&.menuSeparator{display: none;}
+		& > a{
+			@padd:25px;
+	    	text-align: center;
+	    	padding-left: @padd !important;
+	    	padding-right: @padd !important;
+		}
+	}
+}
+
+
+.menu-scnd,
+.menu-thrd{
+	padding:0;
+	border:0;
+}
+.menu-scnd{min-width: 100%;}
+.menu-scndLi,
+.menu-thrdLi{ 
+	padding-bottom: 10px;
+	a{
+		padding:5px !important;
+	}
+}
+
+
+.menu-scndLi--active,
+.menu-scndLi:hover{
+	&>a:after{display: block;}
+}
+
+/*md, lg*/
+@media (min-width: @md--min){
+	@h:40px;
+	.navbar{min-height: @h;}
+	.menu-frst{
+		display: flex;justify-content:space-between;float:none;
+		height:@h;
+		
+		&:before,
+		&:after{display: none;}
+	}
+	.menu-frstLi{height: 100%;}
+	.menu-frstLi > a{
+		display: flex !important;
+    	align-items: center;
+    	height: 100%;
+	}
+
+	.menu{
+		&Separator{
+			display: flex !important;
+		  	height:100%;
+		  	&:before{
+			  	content: '';
+			  	display: inline-block;
+		  		margin: auto; 
+			  	width:1px;
+			  	height:13px;
+		  	}
+		}
+		&Separator:last-child{display:none !important;}
+	}
+}
+/*menu burger*/
+@media (max-width: @sm){
+	.menu-frstLi.dropdown > a:after{
+		content:'\25BC';
+
+	}
+	.menu-sncd{
+    	margin: 0 1px;
+
+		font-size: 13px;
+		text-align: center;
+		& > .menu-scndLi > a{display: inline-block!important;}
+	}
+}
